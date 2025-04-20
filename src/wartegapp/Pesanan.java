@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package wartegapp;
 
-/**
- *
- * @author izidn
- */
 import javax.swing.table.DefaultTableModel;
 
 public class Pesanan extends Thread {
@@ -25,12 +17,9 @@ public class Pesanan extends Thread {
 
     @Override
     public void run() {
-        // Proses pesanan di dapur
         Dapur.memasak(pelanggan, makanan);
-
-        // Setelah selesai masak, update status di tabel
         synchronized (modelTabel) {
-            modelTabel.setValueAt("Selesai", rowIndex, 3);
+            modelTabel.setValueAt("Selesai", rowIndex, 5); // Kolom ke-5 = Status
         }
     }
 }
